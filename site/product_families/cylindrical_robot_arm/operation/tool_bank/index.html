@@ -1,0 +1,1551 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.mintrobot.example/product_families/cylindrical_robot_arm/operation/tool_bank/">
+      
+      
+        <link rel="prev" href="../jogging/">
+      
+      
+        <link rel="next" href="../pose_bank/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/mintrobot-favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+  <title>MIINTROBOT DOCS</title>
+
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Space+Grotesk:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Space Grotesk";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../styles/layout.css">
+    
+      <link rel="stylesheet" href="../../../../styles/color.css">
+    
+      <link rel="stylesheet" href="../../../../styles/font.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="white">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tool-bank" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+  <style>
+    .md-header {
+      height: 60px !important;
+      background: linear-gradient(90deg, rgba(4, 8, 7, 0.98), rgba(9, 23, 18, 0.98)) !important;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(118, 247, 188, 0.10);
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 76.24em) {
+      .pc-only { display: none !important; }
+      .mobile-header-inner {
+        display: flex; align-items: center;
+        height: 100%; width: 100%; padding: 0 12px; gap: 10px;
+      }
+      .md-header__button.md-icon { color: #fff; cursor: pointer; display: flex; align-items: center; margin-left: -8px; }
+      .mobile-site-title {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #f7fbff;
+        letter-spacing: -0.02em;
+      }
+    }
+
+    @media (min-width: 76.25em) {
+      .mobile-only { display: none !important; }
+      .md-header__inner { height: 100%; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+
+      .custom-header-inner {
+        height: 100%; display: grid; grid-template-columns: 280px 1fr 320px;
+        align-items: center; width: 100%; box-sizing: border-box;
+      }
+
+      .header-left, .header-center, .header-right { height: 100%; display: flex; align-items: center; padding: 0 12px; }
+      .header-left { gap: 15px; border-right: 1px solid rgba(118, 247, 188, 0.10); }
+      .header-home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 100%;
+        text-decoration: none;
+        color: #fff;
+      }
+      .header-home-btn img,
+      .mobile-brand img {
+        height: 22px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+      }
+      .brand-docs {
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #f7fbff;
+        opacity: 0.96;
+      }
+      .header-breadcrumbs { font-size: 14px; color: #8ea0b1; display: flex; gap: 6px; }
+      .header-breadcrumbs a { color: #8ea0b1; text-decoration: none; }
+      .header-right { justify-content: flex-end; gap: 10px; }
+
+      .md-search { position: relative; transition: all 0.3s; }
+
+      .md-search:focus-within {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0, 0, 0, 0.85); display: flex; flex-direction: column;
+        align-items: center; padding-top: 40px; z-index: 999;
+      }
+
+      .md-search__form {
+        position: relative; display: flex; align-items: center;
+        width: 280px; height: 36px;
+        background-color: rgba(10, 24, 38, 0.88);
+        border: 1px solid rgba(118, 247, 188, 0.12);
+        border-radius: 999px;
+        transition: all 0.3s;
+        overflow: visible;
+      }
+
+      .md-search:focus-within .md-search__form {
+        width: 100%; max-width: 760px; height: 54px;
+        background-color: #0b1622; border: 1px solid rgba(118, 247, 188, 0.16);
+      }
+
+      .md-search__input {
+        width: 100%; height: 100%; background: transparent !important;
+        border: none !important; outline: none !important;
+        color: #fff; font-size: 0.75rem;
+        padding: 0 40px !important;
+      }
+
+      .md-search:focus-within .md-search__input { font-size: 1.1rem; padding: 0 60px !important; }
+
+      .md-search__icon {
+        position: absolute !important;
+        left: 8px !important;
+        top: 50% !important;
+        transform: translateY(-45%) !important;
+        color: #8ea0b1 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        cursor: pointer;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        z-index: 5;
+      }
+
+      .md-search:focus-within .md-search__icon[data-md-component="search-reset"] {
+        opacity: 1 !important;
+        left: 15px !important;
+        pointer-events: auto;
+      }
+
+      .md-search__output { display: none; }
+      .md-search:focus-within .md-search__output {
+        display: block; position: static; width: 100%; max-width: 760px;
+        background: #0b1622; margin-top: 6px; border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        border: 1px solid rgba(118, 247, 188, 0.10);
+      }
+
+      .md-search-result__list {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .md-search-result__item {
+        border-bottom: 1px solid rgba(118, 247, 188, 0.08);
+      }
+
+      .md-search-result__link {
+        padding: 10px 15px !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .md-search-result__article h1,
+      .md-search-result__article h2,
+      .md-search-result__article h3 {
+        font-size: 20px !important;
+        font-weight: 600 !important;
+        margin: 0 0 4px 0 !important;
+        color: #f5fbff !important;
+        line-height: 1.2 !important;
+      }
+
+      .md-search-result__teaser {
+        font-size: 14px !important;
+        color: #94a6b7 !important;
+        line-height: 1.4 !important;
+        max-height: 2.8em;
+        overflow: hidden;
+      }
+
+      .md-search-result mark {
+        background-color: rgba(10, 229, 138, 0.18);
+        color: #d8fff0;
+        text-decoration: none;
+      }
+
+      .md-search__scrollwrap {
+        max-height: 60vh;
+        scrollbar-width: thin;
+        scrollbar-color: #444 transparent;
+      }
+    }
+
+    .md-search-result__icon {
+      width: 1.2rem !important;
+      height: 1.2rem !important;
+      margin-top: 0.1rem !important;
+    }
+
+    .md-search-result__icon svg {
+      width: 0.8rem !important;
+      height: 0.8rem !important;
+      opacity: 0.6;
+    }
+
+    .md-search-result__article {
+      width: 760px;
+      margin-left: 0 !important;
+    }
+
+    .mobile-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #fff;
+    }
+  </style>
+
+  <header class="md-header" data-md-component="header">
+    <div class="md-header__inner" style="width: 100%;">
+      <div class="mobile-header-inner mobile-only">
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+        </label>
+        <a href="../../../.." class="mobile-brand">
+          <img src="../../../../assets/mintrobot-favicon.png" alt="MINTROBOT Docs" >
+          <span class="mobile-site-title">Documents</span>
+        </a>
+      </div>
+
+      <div class="custom-header-inner pc-only">
+        <div class="header-left">
+          <a href="../../../.." class="header-home-btn">
+            <img src="../../../../assets/mintrobot-favicon.png" alt="MINTROBOT Docs" >
+            <span class="brand-docs">Documents</span>
+          </a>
+        </div>
+
+        <div class="header-center">
+          <nav class="header-breadcrumbs">
+            
+              
+                <a href="#">Product Families</a>
+                <span class="sep">/</span>
+              
+            
+              
+                <a href="#">Cylindrical Robot Arm</a>
+                <span class="sep">/</span>
+              
+            
+              
+                <a href="#">Operation</a>
+                <span class="sep">/</span>
+              
+            
+            <span class="current">Tool Bank</span>
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="md-search" data-md-component="search">
+            <form class="md-search__form" name="search">
+              <label class="md-search__icon md-icon" for="__search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M9.5 3a6.5 6.5 0 015.2 10.5l4.4 4.4-1.4 1.4-4.4-4.4A6.5 6.5 0 119.5 3m0 2a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/>
+                </svg>
+              </label>
+
+              <input type="text" class="md-search__input" placeholder="Search" aria-label="Search" data-md-component="search-query" required>
+
+              <button type="submit" class="md-search__icon md-icon" data-md-component="search-reset" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M9.5 3a6.5 6.5 0 015.2 10.5l4.4 4.4-1.4 1.4-4.4-4.4A6.5 6.5 0 119.5 3m0 2a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/>
+                </svg>
+              </button>
+            </form>
+            <div class="md-search__output">
+              <div class="md-search__scrollwrap" data-md-scrollfix>
+                <div class="md-search-result" data-md-component="search-result">
+                  <div class="md-search-result__meta"></div>
+                  <ol class="md-search-result__list"></ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="MINTROBOT Documents" class="md-nav__button md-logo" aria-label="MINTROBOT Documents" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MINTROBOT Documents
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/why_mintrobot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WHY MINTROBOT?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/robot_as_a_system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot as a System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../overview/sdr_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SDR Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Families
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product Families
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cylindrical Robot Arm
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cylindrical Robot Arm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jogging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jogging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Bank
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tool Bank
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-the-tool-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open the Tool Tab
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-name-and-tcp-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Name and TCP Offset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#payload-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payload Setting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stored-tool-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stored Tool Definitions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why It Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pose_bank/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pose Bank
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motion_bank/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Motion Bank
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../collision_detection_stop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Collision-Detection Stop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Integration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../integration/remote_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Remote Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-the-tool-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open the Tool Tab
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-name-and-tcp-offset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool Name and TCP Offset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#payload-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payload Setting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stored-tool-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stored Tool Definitions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-it-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why It Matters
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Product Families
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../overview/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Cylindrical Robot Arm
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Operation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+  <div id="breadcrumb-source" hidden>
+    
+      
+        <a href="#">Product Families</a>
+        <span class="sep">/</span>
+      
+    
+      
+        <a href="#">Cylindrical Robot Arm</a>
+        <span class="sep">/</span>
+      
+    
+      
+        <a href="#">Operation</a>
+        <span class="sep">/</span>
+      
+    
+    <span class="current">Tool Bank</span>
+  </div>
+  
+                  
+
+
+
+<h1 id="tool-bank">Tool Bank</h1>
+<p>If an end-effector is attached, the tool should be configured before precise teaching or motion execution.</p>
+<p>Tool Bank defines how the controller interprets the tool center point and payload relative to the robot flange.</p>
+<p>It also allows multiple tool definitions to be stored and recalled as needed.</p>
+<h2 id="basic-flow">Basic Flow</h2>
+<ol>
+<li>Open the tool tab from the main screen.</li>
+<li>Create a new tool entry.</li>
+<li>Enter the tool name and TCP offset values.</li>
+<li>Save and apply the tool configuration.</li>
+<li>Enter payload information if required.</li>
+<li>Save and apply the payload settings.</li>
+</ol>
+<h2 id="open-the-tool-tab">Open the Tool Tab</h2>
+<p>Tool Bank begins from the main screen.</p>
+<p>Open the tool tab, then create a new tool entry before entering any TCP or payload values.</p>
+<figure>
+  <img alt="Open tool tab from the main screen" src="../images/toolbank-1.png" width="1200" />
+<br />
+<figcaption>Open the Tool Bank tab from the main screen</figcaption>
+</figure>
+<figure>
+  <img alt="Create a new tool entry" src="../images/toolbank-2.png" width="1200" />
+<br />
+<figcaption>Current active tool, stored tool list, and the button used to add a new tool entry</figcaption>
+</figure>
+<h2 id="tool-name-and-tcp-offset">Tool Name and TCP Offset</h2>
+<p>After creating the tool entry, enter the tool name and define the TCP offset.</p>
+<p>The TCP offset describes the position of the actual tool center relative to the robot flange.</p>
+<p>For example, if the tool extends forward from the flange, the TCP offset can be entered along the corresponding axis to reflect that length.</p>
+<figure>
+  <img alt="Tool name, TCP, and payload settings" src="../images/toolbank-3.png" width="1200" />
+<br />
+<figcaption>Tool name, TCP offset setting, and payload setting in Tool Bank</figcaption>
+</figure>
+<p>Once the values are entered, save and apply the configuration.</p>
+<p>Multiple tool definitions can be stored in Tool Bank, which allows the operator to switch between different end-effectors without re-entering the same values every time.</p>
+<h2 id="payload-setting">Payload Setting</h2>
+<p>After the tool offset is configured, enter the payload information if required.</p>
+<p>Payload data is important for controller behavior such as gravity compensation and stable motion response.</p>
+<p>Typical payload items include:</p>
+<ul>
+<li>payload mass</li>
+<li>center of mass if required</li>
+<li>inertia values if required</li>
+</ul>
+<p>After entering the payload values, save and apply the settings again.</p>
+<h2 id="stored-tool-definitions">Stored Tool Definitions</h2>
+<p>Tool Bank is intended to keep multiple tool definitions available for reuse.</p>
+<p>This is useful when:</p>
+<ul>
+<li>different end-effectors are used on the same robot</li>
+<li>tool length changes between tasks</li>
+<li>payload settings differ between applications</li>
+<li>operators need to switch quickly between saved tool profiles</li>
+</ul>
+<h2 id="why-it-matters">Why It Matters</h2>
+<p>Without the correct tool definition, the robot may interpret the end position incorrectly even when the arm itself moves as commanded.</p>
+<p>This becomes especially important when:</p>
+<ul>
+<li>the tool length is significant</li>
+<li>the work position is tight</li>
+<li>repeated motion accuracy matters</li>
+<li>payload compensation affects the result</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.path", "navigation.sections", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../../../../javascripts/nav-state.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../../../../javascripts/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>
