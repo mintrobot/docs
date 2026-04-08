@@ -1,0 +1,67 @@
+site_name: MINTROBOT Documents
+site_url: https://docs.mintrobot.example/
+
+theme:
+  name: material
+  favicon: assets/mintrobot-favicon.png
+  custom_dir: docs/overrides
+  font:
+    text: "Space Grotesk"
+    code: "JetBrains Mono"
+  palette:
+    - scheme: slate
+      primary: black
+      accent: white
+  features:
+    - navigation.path
+    - navigation.sections
+    - navigation.tracking
+    - navigation.instant
+    - navigation.instant.progress
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - Overview:
+    - WHY MINTROBOT?: overview/why_mintrobot.md
+    - Robot as a System: overview/robot_as_a_system.md
+    - SDR Ecosystem: overview/sdr_ecosystem.md
+  - Product Families:
+    - Cylindrical Robot Arm:
+      - Overview: product_families/cylindrical_robot_arm/overview.md
+      - Setup: product_families/cylindrical_robot_arm/setup.md
+      - Operation:
+        - Overview: product_families/cylindrical_robot_arm/operation/index.md
+        - Jogging: product_families/cylindrical_robot_arm/operation/jogging.md
+        - Tool Bank: product_families/cylindrical_robot_arm/operation/tool_bank.md
+        - Pose Bank: product_families/cylindrical_robot_arm/operation/pose_bank.md
+        - Motion Bank: product_families/cylindrical_robot_arm/operation/motion_bank.md
+        - Collision-Detection Stop: product_families/cylindrical_robot_arm/operation/collision_detection_stop.md
+  - Integration:
+    - Overview: integration/overview.md
+    - Remote Control: integration/remote_control.md
+
+extra_css:
+  - styles/layout.css
+  - styles/color.css
+  - styles/font.css
+
+extra_javascript:
+  - javascripts/nav-state.js
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+  - javascripts/mermaid-init.js
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  - search
