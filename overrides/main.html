@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+  <title>MIINTROBOT DOCS</title>
+{% endblock %}
+
+{% block content %}
+  <div id="breadcrumb-source" hidden>
+    {% for parent in page.ancestors | reverse %}
+      {% if parent.url != nav.homepage.url or not parent.url %}
+        <a href="{{ parent.url | url if parent.url else '#' }}">{{ parent.title }}</a>
+        <span class="sep">/</span>
+      {% endif %}
+    {% endfor %}
+    {% if page %}<span class="current">{{ page.title }}</span>{% endif %}
+  </div>
+  {{ super() }}
+{% endblock %}
+
+{% block header %}
+  <style>
+    .md-header {
+      height: 60px !important;
+      background: linear-gradient(90deg, rgba(4, 8, 7, 0.98), rgba(9, 23, 18, 0.98)) !important;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(118, 247, 188, 0.10);
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 76.24em) {
+      .pc-only { display: none !important; }
+      .mobile-header-inner {
+        display: flex; align-items: center;
+        height: 100%; width: 100%; padding: 0 12px; gap: 10px;
+      }
+      .md-header__button.md-icon { color: #fff; cursor: pointer; display: flex; align-items: center; margin-left: -8px; }
+      .mobile-site-title {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: #f7fbff;
+        letter-spacing: -0.02em;
+      }
+    }
+
+    @media (min-width: 76.25em) {
+      .mobile-only { display: none !important; }
+      .md-header__inner { height: 100%; width: 100% !important; margin: 0 !important; padding: 0 !important; }
+
+      .custom-header-inner {
+        height: 100%; display: grid; grid-template-columns: 280px 1fr 320px;
+        align-items: center; width: 100%; box-sizing: border-box;
+      }
+
+      .header-left, .header-center, .header-right { height: 100%; display: flex; align-items: center; padding: 0 12px; }
+      .header-left { gap: 15px; border-right: 1px solid rgba(118, 247, 188, 0.10); }
+      .header-home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 100%;
+        text-decoration: none;
+        color: #fff;
+      }
+      .header-home-btn img,
+      .mobile-brand img {
+        height: 22px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+      }
+      .brand-docs {
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: #f7fbff;
+        opacity: 0.96;
+      }
+      .header-breadcrumbs { font-size: 14px; color: #8ea0b1; display: flex; gap: 6px; }
+      .header-breadcrumbs a { color: #8ea0b1; text-decoration: none; }
+      .header-right { justify-content: flex-end; gap: 10px; }
+
+      .md-search { position: relative; transition: all 0.3s; }
+
+      .md-search:focus-within {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0, 0, 0, 0.85); display: flex; flex-direction: column;
+        align-items: center; padding-top: 40px; z-index: 999;
+      }
+
+      .md-search__form {
+        position: relative; display: flex; align-items: center;
+        width: 280px; height: 36px;
+        background-color: rgba(10, 24, 38, 0.88);
+        border: 1px solid rgba(118, 247, 188, 0.12);
+        border-radius: 999px;
+        transition: all 0.3s;
+        overflow: visible;
+      }
+
+      .md-search:focus-within .md-search__form {
+        width: 100%; max-width: 760px; height: 54px;
+        background-color: #0b1622; border: 1px solid rgba(118, 247, 188, 0.16);
+      }
+
+      .md-search__input {
+        width: 100%; height: 100%; background: transparent !important;
+        border: none !important; outline: none !important;
+        color: #fff; font-size: 0.75rem;
+        padding: 0 40px !important;
+      }
+
+      .md-search:focus-within .md-search__input { font-size: 1.1rem; padding: 0 60px !important; }
+
+      .md-search__icon {
+        position: absolute !important;
+        left: 8px !important;
+        top: 50% !important;
+        transform: translateY(-45%) !important;
+        color: #8ea0b1 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        cursor: pointer;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        z-index: 5;
+      }
+
+      .md-search:focus-within .md-search__icon[data-md-component="search-reset"] {
+        opacity: 1 !important;
+        left: 15px !important;
+        pointer-events: auto;
+      }
+
+      .md-search__output { display: none; }
+      .md-search:focus-within .md-search__output {
+        display: block; position: static; width: 100%; max-width: 760px;
+        background: #0b1622; margin-top: 6px; border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        border: 1px solid rgba(118, 247, 188, 0.10);
+      }
+
+      .md-search-result__list {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .md-search-result__item {
+        border-bottom: 1px solid rgba(118, 247, 188, 0.08);
+      }
+
+      .md-search-result__link {
+        padding: 10px 15px !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .md-search-result__article h1,
+      .md-search-result__article h2,
+      .md-search-result__article h3 {
+        font-size: 20px !important;
+        font-weight: 600 !important;
+        margin: 0 0 4px 0 !important;
+        color: #f5fbff !important;
+        line-height: 1.2 !important;
+      }
+
+      .md-search-result__teaser {
+        font-size: 14px !important;
+        color: #94a6b7 !important;
+        line-height: 1.4 !important;
+        max-height: 2.8em;
+        overflow: hidden;
+      }
+
+      .md-search-result mark {
+        background-color: rgba(10, 229, 138, 0.18);
+        color: #d8fff0;
+        text-decoration: none;
+      }
+
+      .md-search__scrollwrap {
+        max-height: 60vh;
+        scrollbar-width: thin;
+        scrollbar-color: #444 transparent;
+      }
+    }
+
+    .md-search-result__icon {
+      width: 1.2rem !important;
+      height: 1.2rem !important;
+      margin-top: 0.1rem !important;
+    }
+
+    .md-search-result__icon svg {
+      width: 0.8rem !important;
+      height: 0.8rem !important;
+      opacity: 0.6;
+    }
+
+    .md-search-result__article {
+      width: 760px;
+      margin-left: 0 !important;
+    }
+
+    .mobile-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #fff;
+    }
+  </style>
+
+  <header class="md-header" data-md-component="header">
+    <div class="md-header__inner" style="width: 100%;">
+      <div class="mobile-header-inner mobile-only">
+        <label class="md-header__button md-icon" for="__drawer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+        </label>
+        <a href="{{ nav.homepage.url | url }}" class="mobile-brand">
+          <img src="{{ 'assets/mintrobot-favicon.png' | url }}" alt="MINTROBOT Docs" >
+          <span class="mobile-site-title">Documents</span>
+        </a>
+      </div>
+
+      <div class="custom-header-inner pc-only">
+        <div class="header-left">
+          <a href="{{ nav.homepage.url | url }}" class="header-home-btn">
+            <img src="{{ 'assets/mintrobot-favicon.png' | url }}" alt="MINTROBOT Docs" >
+            <span class="brand-docs">Documents</span>
+          </a>
+        </div>
+
+        <div class="header-center">
+          <nav class="header-breadcrumbs">
+            {% for parent in page.ancestors | reverse %}
+              {% if parent.url != nav.homepage.url or not parent.url %}
+                <a href="{{ parent.url | url if parent.url else '#' }}">{{ parent.title }}</a>
+                <span class="sep">/</span>
+              {% endif %}
+            {% endfor %}
+            {% if page %}<span class="current">{{ page.title }}</span>{% endif %}
+          </nav>
+        </div>
+
+        <div class="header-right">
+          <div class="md-search" data-md-component="search">
+            <form class="md-search__form" name="search">
+              <label class="md-search__icon md-icon" for="__search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M9.5 3a6.5 6.5 0 015.2 10.5l4.4 4.4-1.4 1.4-4.4-4.4A6.5 6.5 0 119.5 3m0 2a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/>
+                </svg>
+              </label>
+
+              <input type="text" class="md-search__input" placeholder="Search" aria-label="Search" data-md-component="search-query" required>
+
+              <button type="submit" class="md-search__icon md-icon" data-md-component="search-reset" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M9.5 3a6.5 6.5 0 015.2 10.5l4.4 4.4-1.4 1.4-4.4-4.4A6.5 6.5 0 119.5 3m0 2a4.5 4.5 0 100 9 4.5 4.5 0 000-9z"/>
+                </svg>
+              </button>
+            </form>
+            <div class="md-search__output">
+              <div class="md-search__scrollwrap" data-md-scrollfix>
+                <div class="md-search-result" data-md-component="search-result">
+                  <div class="md-search-result__meta"></div>
+                  <ol class="md-search-result__list"></ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock %}
